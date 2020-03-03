@@ -3,15 +3,20 @@
     <mat-toolbar>
       <div class="search-container">
         <label for="input-search">
-          <input type="text" id="input-search" placeholder="Buscar por nome, código ou email" class="input-lg">
+          <input type="text" id="input-search" [(ngModel)]="busca"
+           placeholder="Buscar por nome, código ou email" class="input-lg">
         </label>
         <button mat-button><i class="icon icon-search"></i></button>
       </div>
     </mat-toolbar>
     <!-- two line list -->
-    <ng-container *ngFor="let cliente of clientes">
-      <app-client-list [cliente]="cliente"></app-client-list>
-    </ng-container>
+    <mat-list *ngIf="!selectedClient">
+      <app-list-item-component *ngFor="let client of clients | async"
+       [client]="client" (selectedClient)="onSelected($event)">
+      </app-list-item-component>
+    </mat-list>
+    <app-client-details *ngIf="selectedClient" [client]="selectedClient" (back)="selectedClient = null">
+    </app-client-details>
   </aside>
 
   <main class="main">
@@ -23,7 +28,7 @@
     <div class="content">
       <nav mat-tab-nav-bar class="client-tab-group">
         <a mat-tab-link
-           [routerLink]="'/transacoes'"
+           routerLink="/transacoes"
            routerLinkActive #rla="routerLinkActive"
            [active]="rla.isActive">
           TRANSAÇÕES
@@ -44,8 +49,21 @@
       <div class="sub-header">
         <mat-toolbar>
           <ul class="status">
-            <li *ngFor="let label of labels">
-              <app-status-item [statusLabel]="label" [valor]="mapLabels[label]"></app-status-item>
+            <li>
+              <h6 class="status-label">Saldo</h6>
+              <p class="status-value">---</p>
+            </li>
+            <li>
+              <h6 class="status-label">Histórico</h6>
+              <p class="status-value">---</p>
+            </li>
+            <li>
+              <h6 class="status-label">Utilizados</h6>
+              <p class="status-value">---</p>
+            </li>
+            <li>
+              <h6 class="status-label">Perdidos</h6>
+              <p class="status-value">---</p>
             </li>
           </ul>
         </mat-toolbar>

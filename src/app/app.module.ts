@@ -7,21 +7,25 @@ import {AppComponent} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MaterialModule} from './shared/material/material.module';
-import {ClientListComponent} from './clientlist/client-list.component';
-import {StatusItemComponent} from './status-item/status-item.component';
 import {TransacoesComponent} from './transacoes/transacoes.component';
 import {HistoricoComponent} from './historico/historico.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ListItemComponentComponent } from './list-item-component/list-item-component.component';
+import { ClientDetailsComponent } from './client-details/client-details.component';
+import { FormattedCpfPipe } from './pipes/formatted-cpf.pipe';
+import { DateFormatDirective } from './directives/date-format.directive';
 
 registerLocaleData(localePt, 'pt');
 
 @NgModule({
   declarations: [
     AppComponent,
-    ClientListComponent,
-    StatusItemComponent,
     TransacoesComponent,
     HistoricoComponent,
+    ListItemComponentComponent,
+    ClientDetailsComponent,
+    FormattedCpfPipe,
+    DateFormatDirective,
   ],
   imports: [
     BrowserModule,

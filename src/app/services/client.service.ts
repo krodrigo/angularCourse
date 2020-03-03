@@ -1,23 +1,25 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {shareReplay} from 'rxjs/operators';
-import {IPontos} from '../models/pontos';
-import {ICliente} from '../models/cliente';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { Client } from '../models/client';
+import { Observable } from 'rxjs';
+import { Point } from '../models/point';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClientService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient) { }
+
+  retrieveClients():Observable<Client[]> {
+    return this.http.get<Client[]>(`${environment.api}/clientes`);
   }
 
-  buscarClientes(): Observable<ICliente[]> {
-    return this.http.get<ICliente[]>('/api/clientes').pipe(shareReplay());
+  retrieveClientPoints(): Observable<Point> {
+    return this.http.get<Point>(`${environment.api}/pontos`);
   }
-
-  buscarPontos(): Observable<IPontos> {
-    return this.http.get<IPontos>('/api/pontos').pipe(shareReplay());
+  retrieveClient(clientId: string):Observable<Client> {
+    return this.http.get<Client>(`${environment.api}/clientes/${clientId}`);
   }
 }
