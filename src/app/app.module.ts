@@ -10,6 +10,9 @@ import {MaterialModule} from './shared/material/material.module';
 import {TransacoesComponent} from './transacoes/transacoes.component';
 import {HistoricoComponent} from './historico/historico.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ClientListItemComponent } from './client-list-item/client-list-item.component';
+import { ClientDetailsComponent } from './client-details/client-details.component';
+import { CPFPipe } from './pipes/cpf.pipe';
 
 registerLocaleData(localePt, 'pt');
 
@@ -18,6 +21,9 @@ registerLocaleData(localePt, 'pt');
     AppComponent,
     TransacoesComponent,
     HistoricoComponent,
+    ClientListItemComponent,
+    ClientDetailsComponent,
+    CPFPipe,
   ],
   imports: [
     BrowserModule,

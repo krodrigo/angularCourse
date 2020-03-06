@@ -9,13 +9,12 @@
       </div>
     </mat-toolbar>
     <!-- two line list -->
-    <mat-list>
-      <mat-list-item>
-        <p matLine>Paulo Santos de Almeida</p>
-        <h3 matLine>paulo.santos@email.com</h3>
-        <p matLine>02341233409</p>
-      </mat-list-item>
+    <mat-list *ngIf="!selectedClient">
+      <app-client-list-item *ngFor="let client of clients | async" [client]="client" (selectedClick)="onSelected($event)"></app-client-list-item>
     </mat-list>
+    <app-client-details *ngIf="selectedClient as client" [client]="client" (backClicked)="onBackClicked()">
+
+    </app-client-details>
   </aside>
 
   <main class="main">
@@ -50,7 +49,7 @@
           <ul class="status">
             <li>
               <h6 class="status-label">Saldo</h6>
-              <p class="status-value">---</p>
+              <p class="status-value">{{clientPoint ? (clientPoint.total | number) : "---"}}</p>
             </li>
             <li>
               <h6 class="status-label">Histórico</h6>
@@ -58,11 +57,11 @@
             </li>
             <li>
               <h6 class="status-label">Utilizados</h6>
-              <p class="status-value">---</p>
+              <p class="status-value">{{clientPoint ? (clientPoint.utilizados | number) : "---"}}</p>
             </li>
             <li>
               <h6 class="status-label">Perdidos</h6>
-              <p class="status-value">---</p>
+              <p class="status-value">{{clientPoint ? (clientPoint.expirados | number) : "---"}}</p>
             </li>
           </ul>
         </mat-toolbar>

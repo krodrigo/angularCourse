@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="avatar">
+        <button mat-button (click)="onBack()"><i class="icon icon-voltar"></i></button>
+        <img matListAvatar 
+        src="https://media-exp1.licdn.com/dms/image/C4D03AQGy7R8fNEtWxA/profile-displayphoto-shrink_200_200/0?e=1588809600&v=beta&t=ykP_5quTZ4vkrljkj8GkRbw9KD2PbyPg5Py141iupgc" 
+        [alt]="client.nome">
+    </div>
+    <h4>{{client.nome}}</h4>
+    <p>{{client.cpf | CPF}}</p>
+</div>
