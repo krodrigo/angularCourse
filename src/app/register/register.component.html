@@ -21,8 +21,8 @@
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
-          <input matInput formControlName="cpf" placeholder="CPF">
-          <mat-error *ngIf="form.get('usuario').hasError">Informe o CPF</mat-error>
+          <input matInput appCpfFormat formControlName="cpf" placeholder="CPF">
+          <mat-error *ngIf="form.get('cpf').hasError">{{form.get('cpf').getError('data')}}</mat-error>
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
