@@ -8,5 +8,4 @@ export class ValidaCpfPipe implements PipeTransform {
   transform(value: unknown, ...args: unknown[]): unknown {
     return null;
   }
-
 }

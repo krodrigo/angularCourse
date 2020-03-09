@@ -1,5 +1,5 @@
 import { FormControl } from '@angular/forms';
-import { ValidaCpfPipe } from '../pipes/valida-cpf.pipe';
+import { ValidaCpfPipe } from './pipes/valida-cpf.pipe';
 
 export class AppValidators {
     static cpfValidator(control: FormControl) {
