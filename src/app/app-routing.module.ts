@@ -1,27 +1,29 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {TransacoesComponent} from './transacoes/transacoes.component';
-import {HistoricoComponent} from './historico/historico.component';
-import {BeneficiosComponent} from './beneficios/beneficios.component';
+import {LoginComponent} from './login/login.component';
+import {RegisterComponent} from './register/register.component';
 
 
 const routes: Routes = [
-  {path: 'transacoes', component: TransacoesComponent},
-  {path: 'beneficios', component: BeneficiosComponent},
-  {
-    path: 'historico',
-    component: HistoricoComponent
-  },
+  {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
   {
     path: '',
-    redirectTo: '/transacoes',
+    redirectTo: '/clientes',
     pathMatch: 'full'
   },
-  {path: '**', component: TransacoesComponent}
+  {
+    path: 'clientes',
+    loadChildren: () =>
+      import('./clientes/clientes.module').then(
+        m => m.ClientesModule
+      )
+  },
+  {path: '**', redirectTo: ''}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {relativeLinkResolution: 'corrected'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

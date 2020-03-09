@@ -1,9 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Client } from '../models/client';
-import { ClientService } from '../services/client.service';
+import { Client } from '../../models/client';
+import { ClientService } from '../../services/client.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-import { FormattedCpfPipe } from '../pipes/formatted-cpf.pipe';
+import { FormattedCpfPipe } from '../../pipes/formatted-cpf.pipe';
 
 @Component({
   selector: 'app-client-details',

@@ -12,14 +12,14 @@ export class ClientService {
 
   constructor(private http: HttpClient) { }
 
-  retrieveClients():Observable<Client[]> {
+  retrieveClients(): Observable<Client[]> {
     return this.http.get<Client[]>(`${environment.api}/clientes`);
   }
 
   retrieveClientPoints(): Observable<Point> {
     return this.http.get<Point>(`${environment.api}/pontos`);
   }
-  retrieveClient(clientId: string):Observable<Client> {
+  retrieveClient(clientId: string): Observable<Client> {
     return this.http.get<Client>(`${environment.api}/clientes/${clientId}`);
   }
 }
