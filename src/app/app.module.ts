@@ -10,6 +10,8 @@ import {MaterialModule} from './shared/material/material.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
+import { CpfFormatDirective } from './directives/cpf-format.directive';
+import { ValidaCpfPipe } from './pipes/valida-cpf.pipe';
 
 registerLocaleData(localePt, 'pt');
 
@@ -18,6 +20,8 @@ registerLocaleData(localePt, 'pt');
     AppComponent,
     LoginComponent,
     RegisterComponent,
+    CpfFormatDirective,
+    ValidaCpfPipe,
   ],
   imports: [
     BrowserModule,
