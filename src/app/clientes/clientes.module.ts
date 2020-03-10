@@ -8,10 +8,9 @@ import {ListItemComponentComponent} from './list-item-component/list-item-compon
 import {ClientDetailsComponent} from './client-details/client-details.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MaterialModule} from '../shared/material/material.module';
 import {ClientesComponent} from './clientes.component';
-import {FormattedCpfPipe} from '../pipes/formatted-cpf.pipe';
-import {DateFormatDirective} from '../directives/date-format.directive';
+import { SharedModule } from '../shared/shared.module';
+import { BeneficiosComponent } from './beneficios/beneficios.component';
 
 
 @NgModule({
@@ -21,8 +20,7 @@ import {DateFormatDirective} from '../directives/date-format.directive';
     ListItemComponentComponent,
     ClientDetailsComponent,
     ClientesComponent,
-    FormattedCpfPipe,
-    DateFormatDirective,
+    BeneficiosComponent,
   ],
   imports: [
     CommonModule,
@@ -30,7 +28,7 @@ import {DateFormatDirective} from '../directives/date-format.directive';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule,
+    SharedModule,
   ]
 })
 export class ClientesModule { }

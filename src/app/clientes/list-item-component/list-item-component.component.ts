@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Client } from '../../models/client';
+import { User } from '../../models/client';
 
 @Component({
   selector: 'app-list-item-component',
@@ -7,8 +7,8 @@ import { Client } from '../../models/client';
   styleUrls: ['./list-item-component.component.scss']
 })
 export class ListItemComponentComponent implements OnInit {
-  @Input() client: Client;
-  @Output() selectedClient: EventEmitter<Client> = new EventEmitter();
+  @Input() client: User;
+  @Output() selectedClient: EventEmitter<User> = new EventEmitter();
 
   constructor() { }
 

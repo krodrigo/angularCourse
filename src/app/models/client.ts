@@ -1,6 +1,7 @@
-export interface Client {
+export interface User {
+  token: string;
   id: number;
-    nome: string;
-    cpf: string;
-    email: string;
+  name: string;
+  cpf: string;
+  email: string;
 }

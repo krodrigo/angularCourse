@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
-import {Client} from '../models/client';
-import {ClientService} from '../services/client.service';
+import {User} from '../models/client';
+import {UserService} from '../services/client.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -11,11 +11,11 @@ import {Router} from '@angular/router';
 })
 export class ClientesComponent implements OnInit {
 
-  clients: Observable<Client[]>;
-  selectedClient: Client;
+  clients: Observable<User[]>;
+  selectedClient: User;
   busca = 'Paulo';
 
-  constructor(private clientService: ClientService,
+  constructor(private clientService: UserService,
               private router: Router) {
 
   }
@@ -24,7 +24,7 @@ export class ClientesComponent implements OnInit {
     this.clients = this.clientService.retrieveClients();
   }
 
-  onSelected(client: Client): void {
+  onSelected(client: User): void {
     this.selectedClient = client;
   }
 

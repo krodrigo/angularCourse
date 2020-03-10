@@ -4,25 +4,26 @@
       <mat-card-title>Register</mat-card-title>
     </mat-card-header>
 
-    <form class="example-form">
+    <form class="example-form" [formGroup]="form">
       <mat-card-content>
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Nome">
+          <input matInput placeholder="Nome" formControlName="name">
         </mat-form-field>
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Usuário">
-        </mat-form-field>
-
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Email">
+          <input matInput placeholder="Usuário"
+           formControlName="username">
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="CPF">
+          <input matInput placeholder="Email" formControlName="email">
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Senha">
+          <input matInput appCpf placeholder="CPF" formControlName="cpf">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Senha" formControlName="password">
         </mat-form-field>
       </mat-card-content>
       <button mat-stroked-button color="primary" class="btn-block">Register</button>
