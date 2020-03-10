@@ -1,8 +1,9 @@
-import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {LoginComponent} from './login/login.component';
-import {RegisterComponent} from './register/register.component';
 
+import { AuthGuard } from './shared/guards/auth.guard';
+import {LoginComponent} from './login/login.component';
+import {NgModule} from '@angular/core';
+import {RegisterComponent} from './register/register.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   },
   {
     path: 'clientes',
+    canActivate: [AuthGuard],
     loadChildren: () =>
       import('./clientes/clientes.module').then(
         m => m.ClientesModule

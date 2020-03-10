@@ -3,7 +3,7 @@
     <mat-card-header>
       <mat-card-title>Log in</mat-card-title>
     </mat-card-header>
-    <form [formGroup]="form" class="example-form">
+    <form [formGroup]="form" class="example-form" (ngSubmit)="onSubmit()">
       <mat-card-content>
         <mat-form-field class="example-full-width">
           <input matInput formControlName="usuario" placeholder="Usuário">
